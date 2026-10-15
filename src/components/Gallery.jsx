@@ -1,10 +1,20 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { trabajos } from '../config'
 import { Reveal, SectionHead } from './ui'
 
 export default function Gallery() {
   const [open, setOpen] = useState(null)
+  const track = useRef(null)
+  const slide = (dir) => {
+    const el = track.current
+    if (!el) return
+    const end = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4
+    const start = el.scrollLeft <= 4
+    if (dir > 0 && end) return el.scrollTo({ left: 0, behavior: 'smooth' })
+    if (dir < 0 && start) return el.scrollTo({ left: el.scrollWidth, behavior: 'smooth' })
+    el.scrollBy({ left: dir * el.clientWidth * 0.9, behavior: 'smooth' })
+  }
 
   useEffect(() => {
     if (open === null) return
@@ -20,13 +30,17 @@ export default function Gallery() {
   return (
     <section id="trabajos" className="gutter mx-auto max-w-[1240px] py-24 md:py-32">
       <SectionHead label="Trabajos" title="Hecho a mano" intro="Algunos diseños recientes del estudio. Cada set es único, pensado para quien lo lleva." />
-      <div className="mt-14 columns-2 gap-3 md:columns-3 md:gap-4">
-        {trabajos.map((src, i) => (
-          <Reveal key={src} delay={(i % 3) * 0.06} className="mb-3 break-inside-avoid md:mb-4">
+      <Reveal className="relative mt-14">
+        <div
+          ref={track}
+          className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 pb-2 md:mx-0 md:gap-4 md:scroll-px-0 md:px-0"
+        >
+          {trabajos.map((src, i) => (
             <button
+              key={src}
               type="button"
               onClick={() => setOpen(i)}
-              className="group block w-full overflow-hidden rounded-[18px] bg-line"
+              className="group relative aspect-[4/5] w-[72%] shrink-0 snap-start overflow-hidden rounded-[18px] bg-line sm:w-[44%] md:w-[calc((100%-2rem)/3)]"
               aria-label={`Ver trabajo ${i + 1} en grande`}
             >
               <img
@@ -34,12 +48,19 @@ export default function Gallery() {
                 alt={`Diseño de uñas Nails Lee ${i + 1}`}
                 loading="lazy"
                 decoding="async"
-                className="w-full transition-transform duration-700 group-hover:scale-[1.04]"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />
             </button>
-          </Reveal>
-        ))}
-      </div>
+          ))}
+        </div>
+        <div className="mt-6 flex items-center justify-between gap-4">
+          <span className="text-[13px] uppercase tracking-[0.18em] text-vino-soft">Desliza para ver más</span>
+          <div className="flex gap-2">
+            <button type="button" onClick={() => slide(-1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-vino/30 text-[22px] text-vino hover:bg-vino hover:text-cream" aria-label="Trabajos anteriores">‹</button>
+            <button type="button" onClick={() => slide(1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-vino/30 text-[22px] text-vino hover:bg-vino hover:text-cream" aria-label="Más trabajos">›</button>
+          </div>
+        </div>
+      </Reveal>
 
       <AnimatePresence>
         {open !== null && (
