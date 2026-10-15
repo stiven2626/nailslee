@@ -10,7 +10,7 @@ export const negocio = {
   // Ejemplo Colombia: 573001234567
   whatsapp: '573204291507',
   whatsappVisible: '+57 320 429 1507',
-  instagram: 'nailslee', // usuario sin @
+  instagram: 'nails_lee00', // usuario sin @
   direccion: 'Cra 15 #50A-33, San Miguel',
   ciudad: 'Bucaramanga, Santander',
   // Enlace de Google Maps (opcional). Déjalo vacío '' si no lo tienes.
@@ -34,17 +34,19 @@ export const servicios = [
   {
     grupo: 'Manos',
     items: [
-      { id: 'mani-trad', nombre: 'Manicure tradicional', detalle: 'Limado, cutícula, hidratación y esmalte clásico.', duracion: '45 min', precio: null },
-      { id: 'semi', nombre: 'Semipermanente', detalle: 'Brillo que dura hasta tres semanas, sin perder la uña natural.', duracion: '60 min', precio: null },
-      { id: 'acrilico', nombre: 'Uñas acrílicas', detalle: 'Largo y forma a tu medida: almendra, cuadrada, coffin o stiletto.', duracion: '2 h', precio: null },
-      { id: 'polygel', nombre: 'Polygel', detalle: 'Extensión ligera y flexible, ideal si es tu primera vez.', duracion: '1 h 45 min', precio: null },
+      { id: 'mani-trad', nombre: 'Manicure tradicional', detalle: 'Limado, cutícula, hidratación y esmalte clásico.', duracion: '1 h', precio: null },
+      { id: 'semi', nombre: 'Semipermanente', detalle: 'Brillo que dura hasta tres semanas, sin perder la uña natural.', duracion: '1 h 30 min', precio: null },
+      { id: 'acrilico', nombre: 'Uñas acrílicas', detalle: 'Largo y forma a tu medida: almendra, cuadrada, coffin o stiletto.', duracion: '2 h 30 min', precio: null },
+      { id: 'polygel', nombre: 'Polygel', detalle: 'Extensión ligera y flexible, ideal si es tu primera vez.', duracion: '2 h', precio: null },
+      { id: 'soft-gel', nombre: 'Soft gel / Press on', detalle: 'Extensiones con tips de soft gel: livianas, cómodas y de aspecto natural.', duracion: '2 h', precio: null },
+      { id: 'yap', nombre: 'Técnica YAP', detalle: 'Aplicada sobre tu uña natural para un acabado resistente y prolijo.', duracion: '2 h', precio: null },
     ],
   },
   {
     grupo: 'Pies',
     items: [
-      { id: 'pedi-trad', nombre: 'Pedicure tradicional', detalle: 'Limpieza, exfoliación suave y esmalte.', duracion: '50 min', precio: null },
-      { id: 'pedi-spa', nombre: 'Pedicure spa', detalle: 'Baño tibio, exfoliación, mascarilla y masaje.', duracion: '75 min', precio: null },
+      { id: 'pedi-trad', nombre: 'Pedicure tradicional', detalle: 'Limpieza, exfoliación suave y esmalte.', duracion: '1 h', precio: null },
+      { id: 'pedi-spa', nombre: 'Pedicure spa', detalle: 'Baño tibio, exfoliación, mascarilla y masaje.', duracion: '1 h', precio: null },
     ],
   },
   {
