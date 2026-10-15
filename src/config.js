@@ -11,10 +11,10 @@ export const negocio = {
   whatsapp: '573204291507',
   whatsappVisible: '+57 320 429 1507',
   instagram: 'nailslee', // usuario sin @
-  direccion: 'Bucaramanga',
-  ciudad: 'Santander, Colombia',
+  direccion: 'Cra 15 #50A-33, San Miguel',
+  ciudad: 'Bucaramanga, Santander',
   // Enlace de Google Maps (opcional). Déjalo vacío '' si no lo tienes.
-  mapa: '',
+  mapa: 'https://www.google.com/maps/search/?api=1&query=Carrera+15+%2350A-33+San+Miguel+Bucaramanga+Santander',
   horario: [
     { dias: 'Lunes a viernes', horas: '9:00 a. m. – 7:00 p. m.' },
     { dias: 'Sábados', horas: '9:00 a. m. – 5:00 p. m.' },

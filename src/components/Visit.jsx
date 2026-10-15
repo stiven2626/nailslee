@@ -68,7 +68,7 @@ export function Footer() {
     <footer className="bg-vino text-cream/70">
       <div className="gutter mx-auto flex max-w-[1240px] flex-col items-center justify-between gap-3 border-t border-cream/15 py-8 text-[12px] uppercase tracking-[0.2em] sm:flex-row" style={{ paddingBottom: 'max(2rem, env(safe-area-inset-bottom, 0px))' }}>
         <span>© {new Date().getFullYear()} Nails Lee · Nail Studio</span>
-        <span>{negocio.direccion}, Santander</span>
+        <span>{negocio.ciudad}</span>
         <span>
           Creado por{' '}
           <a href="https://www.ideasantander.com/" target="_blank" rel="noopener noreferrer" className="text-gold underline-offset-4 hover:underline">
